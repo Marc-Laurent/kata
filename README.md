@@ -18,19 +18,15 @@ npm test
 
 ## Usage
 
-```python
+```javascript
 const DictionaryReplacer =  require("../api/dictionary/DictionaryReplacer")
 
-const dictionaryReplacer = new DictionaryReplacer("expression": "\$test\$", "dict": { "test": "success" })
-dictionaryReplacer.replacerAll()
-
-# or
-
 let dictionaryReplacer = new DictionaryReplacer("expression": "\$test\$", "dict": { "test": "success" })
-dictionaryReplacer.properties({
-    "expression": "\$test\$", 
-    "dict": { "test": "success" }
-})
-dictionaryReplacer.replacerAll()
+dictionaryReplacer.replacerAll() # returns "success"
 
+dictionaryReplacer.properties({
+    "expression": "\$temp\$ here comes the name \$name\$", 
+    "dict": { "temp": "temporary", "name": "John Doe" }
+})
+dictionaryReplacer.replacerAll() # returns "temporary here comes the name John Doe"
 ```
