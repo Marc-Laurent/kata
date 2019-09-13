@@ -6,9 +6,17 @@ Kata exercise
 
 [KataDictionaryReplacer](http://codingdojo.org/kata/DictionaryReplacer/)
 
+#### API
+[Nodejs](https://nodejs.org/en/docs/), [Mongoose](https://mongoosejs.com/docs/), [Express](https://expressjs.com)
+
 ## Project setup
 ```
 npm install
+```
+
+# Project start
+```
+npm start ${env}
 ```
 
 ### Run your tests

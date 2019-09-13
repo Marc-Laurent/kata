@@ -59,20 +59,36 @@ class DictionaryReplacer {
         * The first : @param {String} expression
         * The Second : @param {Object} dict
     *
+    * @method replaceAllRequest
+    *** Description: Return reponse with expression and error
+    *
     */
 
     replaceAll(expression, dict) {
         try {
+
             if (typeof expression !== "string" && (typeof dict !== "object" || Array.isArray(dict))) throw new Error("Properties wrong format. You need 2 params : expression: '\\\$name\\\$', dict: {'name': 'Joe'}")
             if (typeof expression !== "string") throw new Error("The expression property wrong format. You need 2 params : expression: '\\\$name\\\$', dict: {'name': 'Joe'}")
             if (typeof dict !== "object" || Array.isArray(dict)) throw new Error("The dict property wrong format. You need 2 params : expression: '\\\$name\\\$', dict: {'name': 'Joe'}")
             
             Object.keys(dict).map( key => { expression = expression.replace(`\$${key}\$`, dict[key]) })
-
+            
             return expression
         } catch (error) {
+
             return error
         }
+    }
+
+    replaceAllRequest(req, res) {
+        if(req.body || req && req.body) res.status(400).json({ expression: null, error: "wrong request"})
+
+        const result = this.replaceAll(req.body.expression, req.body.dict)
+
+        res.status(result.message ? 400 : 200).json({
+            expression: result,
+            error: result.message || null
+        })
     }
 }
 
