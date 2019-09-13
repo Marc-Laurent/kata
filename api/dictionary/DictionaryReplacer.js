@@ -11,7 +11,7 @@
 class DictionaryReplacer {
 
     constructor(expression, dict, ...properties) {
-        this._properties = properties
+        this._properties = [...arguments]
         this._expression = expression || ""
         this._dict = dict || {}
         this._replacerAll = this.replaceAll(this._expression, this._dict)
@@ -22,7 +22,7 @@ class DictionaryReplacer {
     }
     
     set properties(properties) { /*@param {Object} SET ALL Properties*/
-        this._properties = properties
+        this._properties = Object.values(properties)
         this._expression = (properties && properties["expression"]) || ""
         this._dict = (properties && properties["dict"]) || {}
         this._replacerAll = this.replaceAll(this._expression, this._dict)
