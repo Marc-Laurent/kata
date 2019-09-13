@@ -1,0 +1,58 @@
+{
+    "name": "kata",
+    "version": "0.1.0",
+    "type": "module",
+    "scripts": {
+        "test": "jest test"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "babel-eslint": "^10.0.3",
+        "eslint": "^6.3.0",
+        "eslint-config-standard": "^14.1.0",
+        "eslint-plugin-import": "^2.18.2",
+        "eslint-plugin-jest": "^22.17.0",
+        "eslint-plugin-node": "^10.0.0",
+        "eslint-plugin-promise": "^4.2.1",
+        "eslint-plugin-standard": "^4.0.1",
+        "jest": "^24.9.0"
+    },
+    "eslintConfig": {
+        "root": true,
+        "ecmaFeatures": {
+            "modules": true,
+            "spread": true,
+            "experimentalObjectRestSpread": true,
+            "restParams": true
+        },
+        "env": {
+            "node": true,
+            "es6": true
+        },
+        "parser": "babel-eslint",
+        "parserOptions": {
+            "allowImportExportEverywhere": true,
+            "sourceType": "module",
+            "ecmaVersion": 2019
+        },
+        "extends": [
+            "eslint:recommended"
+        ],
+        "plugins": [
+            "jest"
+        ],
+        "rules": {
+            "jest/no-disabled-tests": "warn",
+            "jest/no-focused-tests": "error",
+            "jest/no-identical-title": "error",
+            "jest/prefer-to-have-length": "warn",
+            "jest/valid-expect": "error"
+        }
+    },
+    "jest": {
+        "verbose": true,
+        "testMatch": [
+            "**/test/*.js?(x)"
+        ]
+    }
+}
